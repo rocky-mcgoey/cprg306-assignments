@@ -8,7 +8,7 @@ export default function Page() {
       <p>Name: Rocky McGoey</p>
       <p>
         GitHub:
-        <Link href="https://github.com/rocky-mcgoey"> Rocky&#39;s Repository</Link>
+        <Link href="https://github.com/rocky-mcgoey"> https://github.com/rocky-mcgoey</Link>
       </p>
     </main>
   );
