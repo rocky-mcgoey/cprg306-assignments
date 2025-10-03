@@ -78,7 +78,7 @@ const items = [item1, item2, item3, item4, item5, item6, item7, item8, item9, it
   return (
     <ul className="mt-4 list-none flex flex-col items-center">
       {items.map((item, index) => (
-        <Item key={index} name={item.name} quantity={item.quantity} category={item.category} />
+        <Item key={index} {...item} />
       ))}
     </ul>
   );
