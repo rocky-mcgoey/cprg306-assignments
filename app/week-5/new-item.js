@@ -40,7 +40,7 @@ const decrement = () => {
 
 
   return (
-    <section className="max-w-md mx-auto mt-8 p-6 rounded-xl border-2 shadow-md bg-white border-gray-300 text-gray-800 dark:bg-gray-900 dark:border-gray-600 dark:text-gray-100">
+    <section className="max-w-md mx-auto mt-8 p-6 rounded-xl border-2 shadow-md bg-white-100 border-black-300 text-gray-800 dark:bg-stone-900 dark:border-teal-600 dark:text-teal-300">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block mb-1 font-medium" htmlFor="name">
@@ -73,7 +73,7 @@ const decrement = () => {
               type="button"
               onClick={decrement}
               disabled={quantity === 1}
-              className="px-3 py-1 bg-gray-200 rounded-md hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600"
+              className="px-3 py-1 bg-gray-200 rounded-md hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 disabled:cursor-not-allowed"
               
             >
               -
@@ -83,14 +83,14 @@ const decrement = () => {
               type="button"
               onClick={increment}
               disabled={quantity === 20}
-              className="px-3 py-1 bg-gray-200 rounded-md hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600"
+              className="px-3 py-1 bg-gray-400 rounded-md hover:bg-gray-200 dark:bg-blue-700 dark:hover:bg-blue-400 disabled:cursor-not-allowed"
             >
               +
             </button>
             
           </div>
 
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-sm text-gray-300 mt-1">
               Allowed range: 1-20
             </p>
           </div>
@@ -114,7 +114,7 @@ const decrement = () => {
         <div className="pt-1">
           <button
           type="submit"
-          className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-1/2 py-2 px-4 bg-teal-400 text-black font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             Add Item
           </button>
