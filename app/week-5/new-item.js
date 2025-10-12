@@ -11,7 +11,7 @@ export default function NewItem() {
   const increment = () => {
     setQuantity(q => {
       if (q < 20) return q + 1;
-      return 1;
+      return 20;
   });
   };
 
@@ -21,33 +21,105 @@ const decrement = () => {
     if (q > 1) return q - 1;
     return 1;
   });
-};
+  };
+  function handleSubmit(event) {
+    event.preventDefault();
+    const item = { name, quantity, category  };
+    console.log("New Item:", item);
+    alert(`Item Added: ${name}, Quantity: ${quantity}, Category: ${category}`);
+
+    // Reset form
+    setName("");
+    setQuantity(1);
+    setCategory("Produce");
+  }
+
+  const categories = ["Produce", "Dairy", "Bakery", "Meat", "Canned Goods", "Dry Goods", "Household", , "Snacks", "Beverages", "Frozen Foods","Other"];
+
+
+
 
   return (
-    <section className="max-w-md mx-auto mt-8 p-6 rounded-xl border-2 border-green-500 shadow-sm">
-      <h2 className="text-xl font-semibold mb-4">Quantity: {quantity}</h2>
+    <section className="max-w-md mx-auto mt-8 p-6 rounded-xl border-2 shadow-md bg-white border-gray-300 text-gray-800 dark:bg-gray-900 dark:border-gray-600 dark:text-gray-100">
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label className="block mb-1 font-medium" htmlFor="name">
+            Item Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            required
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-600"
+            placeholder="e.g., milk, 4 L 🥛"
+          />
+        </div>
 
-      <div className="flex items-center gap-6">
-        <button
-          type="button"
-          onClick={decrement}
-          disabled={quantity === 1}
-          className="px-6 py-2 rounded-lg bg-gray-400 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200"
-        >
-          -
-        </button>
+        <div>
+          <label className="block mb-1 font-medium" htmlFor="quantity">
+            Quantity (1-20)
+          </label>
 
+          <div className="flex items-center gap-3">
+           
+              <span className="mr-1">Current:</span>
+              <span className="font-bold">{quantity}</span>
+          </div>
+            
+          <div className="flex items-center gap-2 mb-2">
+            <button
+              type="button"
+              onClick={decrement}
+              disabled={quantity === 1}
+              className="px-3 py-1 bg-gray-200 rounded-md hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600"
+              
+            >
+              -
+            </button>
 
-        <button
-          type="button"
-          onClick={increment}
-          disabled={quantity === 20}
-          className="px-6 py-2 rounded-lg bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-400"
-        >
-          +
-        </button>
-      </div>
-      <p className= "mt-4 text-sm text-gray-400">Allowed range: 1-20</p>
+            <button
+              type="button"
+              onClick={increment}
+              disabled={quantity === 20}
+              className="px-3 py-1 bg-gray-200 rounded-md hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600"
+            >
+              +
+            </button>
+            
+          </div>
+
+            <p className="text-sm text-gray-500 mt-1">
+              Allowed range: 1-20
+            </p>
+          </div>
+        <div>
+          <label className="block mb-1 font-medium" htmlFor="category">
+            Category
+          </label>
+          <select
+            id="category"
+            value={category}
+            onChange={(event) => setCategory(event.target.value)}
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-600"
+          >
+            {categories.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="pt-1">
+          <button
+          type="submit"
+          className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            Add Item
+          </button>
+        </div>
+      </form>
     </section>
   );
 }
