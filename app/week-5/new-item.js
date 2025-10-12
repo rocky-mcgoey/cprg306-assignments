@@ -26,7 +26,7 @@ const decrement = () => {
     event.preventDefault();
     const item = { name, quantity, category  };
     console.log("New Item:", item);
-    alert(`Item Added: ${name}, Quantity: ${quantity}, Category: ${category}`);
+    alert(`Item Added: ${name} \nQuantity: ${quantity} \nCategory: ${category}`);
 
     // Reset form
     setName("");
