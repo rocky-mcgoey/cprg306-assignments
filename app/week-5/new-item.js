@@ -26,7 +26,7 @@ const decrement = () => {
     event.preventDefault();
     const item = { name, quantity, category  };
     console.log("New Item:", item);
-    alert(`Item Added: ${name} \nQuantity: ${quantity} \nCategory: ${category}`);
+    alert(`Item Added: ${name} \nQuantity: ${quantity} \nCategory: ${category} \n${name} has been added to the list!`);
 
     // Reset form
     setName("");
@@ -34,7 +34,7 @@ const decrement = () => {
     setCategory("Produce");
   }
 
-  const categories = ["Produce", "Dairy", "Bakery", "Meat", "Canned Goods", "Dry Goods", "Household", , "Snacks", "Beverages", "Frozen Foods","Other"];
+  const categories = ["Produce", "Dairy", "Bakery", "Meat", "Canned Goods", "Dry Goods", "Household", "Snacks", "Beverages", "Frozen Foods","Other"];
 
 
 
