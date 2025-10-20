@@ -18,7 +18,7 @@ export default function ItemList() {
     <section className="max-w mx-auto p-4">
 
       <div className="flex justify-left gap-3 mb-6">
-        <h2 className="text-lg font-semibold">Sort Items:</h2>
+        <h2 className="text-lg font-semibold text-shadow-black dark:text-blue-600">Sort Items:</h2>
         <button
           onClick={() => setSortBy("name")}
           className={`px-4 py-2 rounded-md font-medium border 
