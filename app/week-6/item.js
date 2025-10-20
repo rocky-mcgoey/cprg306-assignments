@@ -1,6 +1,11 @@
 export default function Item({ name, quantity, category }) {
   return (
-    <li className=" bg-stone-500 text-black border-3 border-yellow-500 rounded-md p-3 mb-3  w-full h-32 mx-auto flex flex-col justify-between">
+    <li className="
+        w-full h-32 mx-auto mb-3 p-4 rounded-md flex flex-col justify-between
+        border-2 border-yellow-500 bg-stone-100 text-stone-900
+        hover:bg-stone-200
+        dark:border-yellow-400 dark:bg-stone-800 dark:text-stone-100
+        dark:hover:bg-stone-700">
       <p className="font-semibold">{name}</p>
       <p className="text-sm">Quantity: {quantity}</p>
       <p className="text-sm">
