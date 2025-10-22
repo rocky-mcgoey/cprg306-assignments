@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
 
-export default function NewItem() {
+export default function NewItem({ onAddItem }) {
   const [quantity, setQuantity] = useState(1);
-  const [category, setCategory] = useState("Produce");
+  const [category, setCategory] = useState("produce");
   const [name, setName] = useState("");
 
 
@@ -24,14 +24,16 @@ const decrement = () => {
   };
   function handleSubmit(event) {
     event.preventDefault();
-    const item = { name, quantity, category  };
+    const id = Math.random().toString(36).substring(2, 9);
+    const item = { id, name, quantity, category  };
     console.log("New Item:", item);
-    alert(`Item Added: ${name} \nQuantity: ${quantity} \nCategory: ${category} \n${name} has been added to the list!`);
+
+    onAddItem(item);
 
     // Reset form
     setName("");
     setQuantity(1);
-    setCategory("Produce");
+    setCategory("produce");
   }
 
   const categories = ["Produce", "Dairy", "Bakery", "Meat", "Canned Goods", "Dry Goods", "Household", "Snacks", "Beverages", "Frozen Foods","Other"];
