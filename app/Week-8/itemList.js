@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import Item from "./item.js";
+import Item from "./Item.js";
 
-export default function ItemList({items}) {
+export default function ItemList({ items, onSelect }) {
   const [sortBy, setSortBy] = useState("name");
 
   const sortedItems = [...items].sort((a, b) => {
@@ -15,13 +15,18 @@ export default function ItemList({items}) {
   });
   return (
     <section className="max-w mx-auto p-4">
-
       <div className="flex justify-left gap-3 mb-6">
-        <h2 className="text-lg font-semibold text-shadow-black dark:text-blue-600">Sort Items:</h2>
+        <h2 className="text-lg font-semibold text-shadow-black dark:text-blue-600">
+          Sort Items:
+        </h2>
         <button
           onClick={() => setSortBy("name")}
           className={`px-4 py-2 rounded-md font-medium border 
-            ${sortBy === "name" ? "bg-yellow-600 text-white" : "bg-stone-300 text-gray-800"}`}
+            ${
+              sortBy === "name"
+                ? "bg-yellow-600 text-white"
+                : "bg-stone-300 text-gray-800"
+            }`}
         >
           Sort by Name
         </button>
@@ -29,7 +34,11 @@ export default function ItemList({items}) {
         <button
           onClick={() => setSortBy("category")}
           className={`px-4 py-2 rounded-md font-medium border 
-            ${sortBy === "category" ? "bg-yellow-600 text-white" : "bg-stone-300 text-gray-800"}`}
+            ${
+              sortBy === "category"
+                ? "bg-yellow-600 text-white"
+                : "bg-stone-300 text-gray-800"
+            }`}
         >
           Sort by Category
         </button>
@@ -42,6 +51,7 @@ export default function ItemList({items}) {
             name={item.name}
             quantity={item.quantity}
             category={item.category}
+            onSelect={onSelect}
           />
         ))}
       </ul>

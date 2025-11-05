@@ -1,6 +1,6 @@
 "use client";
 import ItemList from "./item-list";
-import NewItem from "../Week-8/newItem";
+import NewItem from "./new-item";
 import { useState } from "react";
 import itemsData from "./items.json";
 
