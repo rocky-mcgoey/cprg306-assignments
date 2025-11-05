@@ -27,7 +27,7 @@ export default function Page() {
           <NewItem onAddItem={handleAddItem} />
           <ItemList items={items} onSelect={setSelectedItemName} />
         </div>
-        <div className="p-4 mt-7">
+        <div className="p-4 mt-6">
           <MealIdeas ingredient={selectedItemName} />
         </div>
       </div>

@@ -5,6 +5,10 @@ export default function MealIdeas({ ingredient }) {
   const [mealIdeas, setMealIdeas] = useState([]);
 
   const fetchMealIdeas = async (ingredient) => {
+    if (!ingredient || !ingredient.trim()) {
+      setMealIdeas([]);
+      return;
+    }
     const encode = encodeURIComponent(ingredient);
     const response = await fetch(
       `https://www.themealdb.com/api/json/v1/1/filter.php?i=${encode}`
@@ -24,6 +28,9 @@ export default function MealIdeas({ ingredient }) {
       <h2 className="text-xl font-semibold mt-5 mb-4 text-black dark:text-blue-600">
         Meal Ideas with {ingredient}
       </h2>
+      {mealIdeas.length === 0 && (
+        <p className="text-gray-600 dark:text-gray-400">No meal ideas found.</p>
+      )}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 overflow-y-auto pr-1">
         {mealIdeas &&
           mealIdeas.map((meal) => (
