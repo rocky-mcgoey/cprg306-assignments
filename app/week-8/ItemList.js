@@ -14,8 +14,8 @@ export default function ItemList({ items, onSelect }) {
     return 0;
   });
   return (
-    <section className="max-w mx-auto p-4">
-      <div className="flex justify-left gap-3 mb-6">
+    <section className="max-w mx-auto mt-3">
+      <div className="flex justify-left gap-3 mb-4">
         <h2 className="text-lg font-semibold text-shadow-black dark:text-blue-600">
           Sort Items:
         </h2>

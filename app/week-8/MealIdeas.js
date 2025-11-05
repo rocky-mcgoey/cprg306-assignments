@@ -20,23 +20,21 @@ export default function MealIdeas({ ingredient }) {
   }, [ingredient]);
 
   return (
-    <div className="mt-8">
-      <h2 className="text-xl font-semibold mb-4 text-black dark:text-blue-600">
+    <div className="flex flex-col">
+      <h2 className="text-xl font-semibold mt-5 mb-4 text-black dark:text-blue-600">
         Meal Ideas with {ingredient}
       </h2>
-
-      {/* <pre>
-        <code>{JSON.stringify(mealIdeas, null, 2)}</code>
-      </pre> */}
-
-      <ul>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 overflow-y-auto pr-1">
         {mealIdeas &&
           mealIdeas.map((meal) => (
-            <li key={meal.idMeal} className="mb-2">
-              <p className="text-black dark:text-white">{meal.strMeal}</p>
-            </li>
+            <div
+              key={meal.idMeal}
+              className="w-full p-4 rounded-md border-2 border-yellow-500 bg-stone-100 text-stone-900 dark:border-yellow-400 dark:bg-stone-800 dark:text-blue-600"
+            >
+              {meal.strMeal}
+            </div>
           ))}
-      </ul>
+      </div>
     </div>
   );
 }

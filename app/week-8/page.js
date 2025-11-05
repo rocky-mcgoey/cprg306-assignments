@@ -19,15 +19,15 @@ export default function Page() {
 
   return (
     <main className="min-h-screen p-6">
-      <div className="mb-10 display: flex; flex-direction: column; gap: 10px;">
-        <div className="max-w-2xl mx-auto">
+      <div className="max-w-6xl mx-auto mt-8 grid grid-cols-1 md:grid-cols-2 gap-2;">
+        <div>
           <h1 className="text-2xl font-bold text-center text-black dark:text-blue-600 mb-6">
             Shopping List + Meal Ideas
           </h1>
           <NewItem onAddItem={handleAddItem} />
           <ItemList items={items} onSelect={setSelectedItemName} />
         </div>
-        <div className="max-w-2xl mx-auto mt-10">
+        <div className="p-4 mt-7">
           <MealIdeas ingredient={selectedItemName} />
         </div>
       </div>
