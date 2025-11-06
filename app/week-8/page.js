@@ -7,7 +7,7 @@ import MealIdeas from "./MealIdeas";
 
 export default function Page() {
   const [items, setItems] = useState(itemsData);
-  const [selectedItemName, setSelectedItemName] = useState("chicken");
+  const [selectedItemName, setSelectedItemName] = useState();
 
   {
     /*doesn't mutate array*/

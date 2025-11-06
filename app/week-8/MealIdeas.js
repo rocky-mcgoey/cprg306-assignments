@@ -28,7 +28,14 @@ export default function MealIdeas({ ingredient }) {
       <h2 className="text-xl font-semibold mt-5 mb-4 text-black dark:text-blue-600">
         Meal Ideas with {ingredient}
       </h2>
-      {mealIdeas.length === 0 && (
+
+      {!ingredient && (
+        <p className="text-gray-600 dark:text-gray-400">
+          Please select an item to see meal ideas.
+        </p>
+      )}
+
+      {ingredient && mealIdeas.length === 0 && (
         <p className="text-gray-600 dark:text-gray-400">No meal ideas found.</p>
       )}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 overflow-y-auto pr-1">
