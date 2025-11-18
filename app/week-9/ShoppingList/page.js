@@ -4,7 +4,7 @@ import NewItem from "./NewItem";
 import { useState } from "react";
 import itemsData from "./Items.json";
 import MealIdeas from "./MealIdeas";
-import { useUserAuth } from "../../contexts/Authcontext";
+import { useUserAuth } from "../../contexts/AuthContext";
 
 export default function Page() {
   const { user } = useUserAuth();

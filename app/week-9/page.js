@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useUserAuth } from "../../contexts/Authcontext";
+import { useUserAuth } from "../contexts/AuthContext";
 
 export default function Page() {
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
@@ -44,7 +44,7 @@ export default function Page() {
           </p>
           <div className="flex gap-3">
             <Link
-              href="/week-9/shopping-list"
+              href="/week-9/ShoppingList"
               className="px-4 py-2 border rounded-md"
             >
               Go to Shopping List
