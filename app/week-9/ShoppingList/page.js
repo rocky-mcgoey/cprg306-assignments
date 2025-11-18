@@ -4,8 +4,10 @@ import NewItem from "./NewItem";
 import { useState } from "react";
 import itemsData from "./Items.json";
 import MealIdeas from "./MealIdeas";
+import { useUserAuth } from "../../contexts/Authcontext";
 
 export default function Page() {
+  const { user } = useUserAuth();
   const [items, setItems] = useState(itemsData);
   const [selectedItemName, setSelectedItemName] = useState();
 
@@ -15,6 +17,14 @@ export default function Page() {
   function handleAddItem(newItem) {
     setItems((prevItems) => [...prevItems, newItem]);
     //setItems([...prevItems, newItem]);
+  }
+
+  if (!user) {
+    return (
+      <main className="min-h-screen flex flex-col items-center justify-center gap-4 p-6">
+        <p>You have to be logged in to view this content</p>
+      </main>
+    );
   }
 
   return (
