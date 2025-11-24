@@ -8,18 +8,12 @@ export default function NewItem({ onAddItem }) {
 
   // Increase quantity but stop at 20
   const increment = () => {
-    setQuantity((q) => {
-      if (q < 20) return q + 1;
-      return 20;
-    });
+    setQuantity((q) => Math.min(q + 1, 20));
   };
 
   // Decrease quantity but only until at 1
   const decrement = () => {
-    setQuantity((q) => {
-      if (q > 1) return q - 1;
-      return 1;
-    });
+    setQuantity((q) => Math.max(q - 1, 1));
   };
   function handleSubmit(event) {
     event.preventDefault();
