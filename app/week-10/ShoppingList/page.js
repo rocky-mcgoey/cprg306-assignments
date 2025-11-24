@@ -1,22 +1,42 @@
 "use client";
 import ItemList from "./ItemList";
 import NewItem from "./NewItem";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import { getItems, addItem } from "../_services/ShoppingListService";
 import MealIdeas from "./MealIdeas";
 import { useUserAuth } from "../../contexts/AuthContext";
 
 export default function Page() {
   const { user } = useUserAuth();
-  const [items, setItems] = useState(itemsData);
+  const [items, setItems] = useState([]);
   const [selectedItemName, setSelectedItemName] = useState();
 
-  {
-    /*doesn't mutate array*/
+  async function loadItems() {
+    if (!user) return;
+    try {
+      const loadedItems = await getItems(user.uid);
+      setItems(loadedItems);
+    } catch (error) {
+      console.error("Error loading items:", error);
+    }
   }
-  function handleAddItem(newItem) {
-    setItems((prevItems) => [...prevItems, newItem]);
-    //setItems([...prevItems, newItem]);
+
+  useEffect(() => {
+    if (!user) return;
+    loadItems();
+  }, [user]);
+
+  async function handleAddItem(newItem) {
+    if (!user) return;
+
+    try {
+      const id = await addItem(user.uid, newItem);
+
+      const itemWithId = { ...newItem, id };
+      setItems((prevItems) => [...prevItems, itemWithId]);
+    } catch (error) {
+      console.error("Error adding item:", error);
+    }
   }
 
   if (!user) {

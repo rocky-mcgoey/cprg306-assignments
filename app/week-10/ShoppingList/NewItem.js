@@ -17,8 +17,8 @@ export default function NewItem({ onAddItem }) {
   };
   function handleSubmit(event) {
     event.preventDefault();
-    const id = Math.random().toString(36).substring(2, 9);
-    const item = { id, name, quantity, category };
+
+    const item = { name, quantity, category };
     console.log("New Item:", item);
 
     onAddItem(item);
