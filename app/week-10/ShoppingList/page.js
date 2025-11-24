@@ -2,7 +2,7 @@
 import ItemList from "./ItemList";
 import NewItem from "./NewItem";
 import { useState } from "react";
-import itemsData from "./Items.json";
+
 import MealIdeas from "./MealIdeas";
 import { useUserAuth } from "../../contexts/AuthContext";
 
